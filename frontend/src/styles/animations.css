@@ -1,0 +1,130 @@
+@keyframes easygoLogoReveal {
+  0% {
+    opacity: 0;
+    transform: translateY(18px) scale(0.92);
+    filter: blur(8px);
+  }
+  60% {
+    opacity: 1;
+    transform: translateY(-2px) scale(1.02);
+    filter: blur(0);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    filter: blur(0);
+  }
+}
+
+@keyframes welcomeButtonReveal {
+  0% {
+    opacity: 0;
+    transform: translateY(16px) scale(0.96);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes glowFadeFloat {
+  0% {
+    opacity: 0;
+    transform: scale(0.9) translateY(8px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+@keyframes navFloatIn {
+  0% {
+    opacity: 0;
+    transform: translateX(-50%) translateY(18px) scale(0.96);
+    filter: blur(8px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0) scale(1);
+    filter: blur(0);
+  }
+}
+
+@keyframes searchButtonFloatIn {
+  0% {
+    opacity: 0;
+    transform: translateX(-50%) translateY(20px) scale(0.96);
+    filter: blur(6px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0) scale(1);
+    filter: blur(0);
+  }
+}
+
+@keyframes sheetUpSoft {
+  0% {
+    opacity: 0;
+    transform: translateX(-50%) translateY(42px) scale(0.98);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0) scale(1);
+  }
+}
+
+@keyframes contentFadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.welcome-logo {
+  animation: easygoLogoReveal 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: transform, opacity, filter;
+}
+
+.welcome-btn {
+  animation: welcomeButtonReveal 0.75s cubic-bezier(0.22, 1, 0.36, 1) 0.18s both;
+}
+
+.welcome-version {
+  animation: contentFadeIn 0.7s ease 0.3s both;
+}
+
+.welcome-glow-top-right,
+.welcome-glow-bottom-left {
+  animation: glowFadeFloat 1s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.role-card,
+.auth-card {
+  animation: contentFadeIn 0.6s ease both;
+}
+
+.search-ride-wrap {
+  animation: searchButtonFloatIn 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.ride-search-btn:hover {
+  transform: translateY(-2px) scale(1.01);
+  box-shadow:
+    0 16px 28px rgba(114, 0, 255, 0.32),
+    inset 0 1px 0 rgba(255, 255, 255, 0.25);
+}
+
+.ride-search-btn:active {
+  transform: scale(0.985);
+}
+
+.ride-search-btn:hover .ride-search-icon-wrap {
+  transform: scale(1.04);
+  background: rgba(255, 255, 255, 0.22);
+}

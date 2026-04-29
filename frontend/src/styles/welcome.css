@@ -1,0 +1,125 @@
+.welcome-screen {
+  position: relative;
+  min-height: 100vh;
+  overflow: hidden;
+  background: #f2f2f2;
+}
+
+.welcome-content {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 44px;
+  align-items: center;
+  padding: 0 28px;
+  position: relative;
+  z-index: 2;
+}
+
+.brand {
+  font-weight: 900;
+  letter-spacing: -1px;
+  line-height: 1;
+  font-size: 62px;
+}
+
+.brand-black {
+  color: #000000;
+}
+
+.brand-purple {
+  color: var(--purple);
+}
+
+.welcome-logo {
+  font-size: 64px;
+  font-weight: 900;
+  letter-spacing: -2.2px;
+  line-height: 0.95;
+  text-shadow: 0 6px 14px rgba(0, 0, 0, 0.25);
+  transform: translateY(-12px);
+}
+
+.welcome-btn {
+  border: none;
+  outline: none;
+  cursor: pointer;
+  transition: 0.22s ease;
+  width: 100%;
+  max-width: 250px;
+  height: 46px;
+  border-radius: 14px;
+  background: linear-gradient(180deg, #34323c 0%, #242329 100%);
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 800;
+  letter-spacing: 0.3px;
+  box-shadow: 0 10px 22px rgba(0, 0, 0, 0.22);
+}
+
+.welcome-btn:hover {
+  transform: translateY(-2px) scale(1.01);
+  box-shadow: 0 16px 28px rgba(0, 0, 0, 0.2);
+}
+
+.welcome-btn:active {
+  transform: scale(0.985);
+}
+
+.version-text,
+.welcome-version {
+  position: absolute;
+  left: 0;
+  right: 0;
+  text-align: center;
+  z-index: 2;
+}
+
+.version-text {
+  bottom: 16px;
+  color: #444444;
+  font-size: 14px;
+}
+
+.welcome-version {
+  bottom: 20px;
+  font-size: 12px;
+  color: #3b3b3b;
+}
+
+.welcome-glow {
+  position: absolute;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.welcome-glow-top-right {
+  top: -30px;
+  right: -30px;
+  width: 220px;
+  height: 220px;
+  background: radial-gradient(
+    circle at top right,
+    rgba(198, 45, 255, 0.95) 0%,
+    rgba(198, 45, 255, 0.75) 20%,
+    rgba(198, 45, 255, 0.35) 45%,
+    rgba(198, 45, 255, 0) 75%
+  );
+  filter: blur(26px);
+}
+
+.welcome-glow-bottom-left {
+  left: -40px;
+  bottom: -40px;
+  width: 240px;
+  height: 240px;
+  background: radial-gradient(
+    circle at bottom left,
+    rgba(214, 30, 255, 0.98) 0%,
+    rgba(214, 30, 255, 0.78) 22%,
+    rgba(214, 30, 255, 0.35) 48%,
+    rgba(214, 30, 255, 0) 78%
+  );
+  filter: blur(28px);
+}

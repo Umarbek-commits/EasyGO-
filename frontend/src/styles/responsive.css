@@ -1,0 +1,72 @@
+@media (max-width: 390px) {
+  .profile-name {
+    font-size: 22px;
+  }
+
+  .support-title {
+    font-size: 28px;
+  }
+
+  .welcome-logo {
+    font-size: 58px;
+  }
+
+  .welcome-btn {
+    max-width: 230px;
+    height: 44px;
+    font-size: 13px;
+  }
+
+  .bottom-nav-shell {
+    width: calc(100% - 20px);
+  }
+}
+
+@media (min-width: 768px) {
+  .role-card,
+  .auth-card {
+    width: 100%;
+    max-width: 430px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .searching-sheet,
+  .driver-found-sheet,
+  .cancel-confirm-sheet,
+  .ride-sheet {
+    max-width: 430px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .welcome-logo,
+  .welcome-btn,
+  .welcome-version,
+  .welcome-glow-top-right,
+  .welcome-glow-bottom-left,
+  .role-card,
+  .auth-card,
+  .search-ride-wrap,
+  .bottom-nav-shell,
+  .profile-header-card,
+  .profile-menu-groups,
+  .profile-logout-wrap,
+  .support-content,
+  .ride-sheet,
+  .searching-sheet,
+  .driver-found-sheet,
+  .cancel-confirm-sheet {
+    animation: none !important;
+  }
+
+  .welcome-btn,
+  .ride-search-btn,
+  .bottom-nav-item,
+  .bottom-nav-map-pill,
+  .profile-logout-btn,
+  .support-quick-chip,
+  .profile-menu-item {
+    transition: none !important;
+  }
+}

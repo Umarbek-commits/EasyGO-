@@ -1,0 +1,10 @@
+:root {
+  --bg-light: #f2f2f2;
+  --black: #222126;
+  --purple: #b800ff;
+  --purple-2: #8f00ff;
+  --text: #111111;
+  --muted: #777777;
+  --white: #ffffff;
+  --shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
+}

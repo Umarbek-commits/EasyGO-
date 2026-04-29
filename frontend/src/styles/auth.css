@@ -1,0 +1,113 @@
+.auth-screen {
+  position: relative;
+  min-height: 100vh;
+  overflow: hidden;
+  background: #f2f2f2;
+}
+
+.auth-card {
+  position: relative;
+  z-index: 2;
+  margin: 140px 20px 24px;
+  background: rgba(255, 255, 255, 0.92);
+  border-radius: 28px;
+  box-shadow: var(--shadow);
+  padding: 26px 18px 20px;
+}
+
+.auth-brand {
+  top: 28px;
+}
+
+.field-label {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 14px;
+  font-weight: 700;
+  color: #222222;
+}
+
+.easy-input {
+  width: 100%;
+  min-height: 52px;
+  padding: 0 16px;
+  border: none;
+  border-radius: 16px;
+  background: #ececec;
+  color: #111111;
+  font-size: 15px;
+  margin-bottom: 16px;
+}
+
+.easy-input:focus {
+  outline: 2px solid rgba(184, 0, 255, 0.22);
+}
+
+.error-text {
+  margin-bottom: 12px;
+  color: #cf1b1b;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.mock-hint {
+  margin: -6px 0 14px;
+  color: #5b5b5b;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.primary-dark-btn,
+.primary-purple-btn,
+.back-link-btn {
+  border: none;
+  outline: none;
+  cursor: pointer;
+  transition: 0.22s ease;
+}
+
+.primary-dark-btn:hover,
+.primary-purple-btn:hover,
+.back-link-btn:hover {
+  transform: translateY(-1px);
+}
+
+.primary-dark-btn {
+  display: block;
+  width: 100%;
+  max-width: 290px;
+  min-height: 54px;
+  margin: 0 auto;
+  border-radius: 16px;
+  background: linear-gradient(180deg, #35323a 0%, #232228 100%);
+  color: white;
+  font-size: 16px;
+  font-weight: 700;
+  box-shadow: var(--shadow);
+}
+
+.primary-purple-btn {
+  display: block;
+  width: 100%;
+  max-width: 290px;
+  min-height: 54px;
+  margin: 0 auto;
+  border-radius: 16px;
+  background: linear-gradient(90deg, #7a00ff 0%, #d000ff 100%);
+  color: white;
+  font-size: 16px;
+  font-weight: 700;
+  box-shadow: var(--shadow);
+}
+
+.back-link-btn {
+  display: block;
+  width: 100%;
+  min-height: 48px;
+  margin: 12px auto 0;
+  border-radius: 14px;
+  background: transparent;
+  color: #2a2a2a;
+  font-size: 15px;
+  font-weight: 700;
+}

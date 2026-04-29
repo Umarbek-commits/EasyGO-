@@ -1,0 +1,88 @@
+.role-screen {
+  position: relative;
+  min-height: 100vh;
+  overflow: hidden;
+  background: #f2f2f2;
+}
+
+.top-brand {
+  position: absolute;
+  top: 32px;
+  left: 20px;
+  font-size: 34px;
+  font-weight: 900;
+  letter-spacing: -1px;
+  line-height: 1;
+  z-index: 3;
+}
+
+.role-card {
+  position: relative;
+  z-index: 2;
+  margin: 140px 20px 24px;
+  background: rgba(255, 255, 255, 0.92);
+  border-radius: 28px;
+  box-shadow: var(--shadow);
+  padding: 26px 18px 20px;
+}
+
+.title {
+  margin: 0 0 8px;
+  font-size: 30px;
+  font-weight: 900;
+  color: var(--text);
+}
+
+.subtitle {
+  margin: 0 0 22px;
+  font-size: 15px;
+  color: var(--muted);
+  line-height: 1.4;
+}
+
+.choice-btn {
+  border: none;
+  outline: none;
+  cursor: pointer;
+  transition: 0.22s ease;
+  width: 100%;
+  min-height: 56px;
+  margin-bottom: 14px;
+  border-radius: 16px;
+  background: #25242a;
+  color: white;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.choice-btn:hover {
+  transform: translateY(-1px);
+}
+
+.choice-btn-purple {
+  background: linear-gradient(90deg, #7a00ff 0%, #d000ff 100%);
+}
+
+.glow {
+  position: absolute;
+  border-radius: 999px;
+  filter: blur(22px);
+  opacity: 0.95;
+  pointer-events: none;
+}
+
+.glow-top-right {
+  top: -20px;
+  right: -40px;
+  width: 180px;
+  height: 180px;
+  background: radial-gradient(circle, rgba(194, 0, 255, 0.85) 0%, rgba(194, 0, 255, 0) 70%);
+}
+
+.glow-bottom-left {
+  left: -50px;
+  bottom: 90px;
+  width: 180px;
+  height: 180px;
+  background: radial-gradient(circle, rgba(194, 0, 255, 0.85) 0%, rgba(194, 0, 255, 0) 70%);
+}
