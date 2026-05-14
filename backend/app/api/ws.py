@@ -1,3 +1,4 @@
+print("WS FILE LOADED")
 from fastapi import APIRouter, WebSocket, WebSocketDisconnect
 from typing import Dict
 import json
