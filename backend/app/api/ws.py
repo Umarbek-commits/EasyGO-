@@ -119,7 +119,11 @@ async def websocket_driver_endpoint(websocket: WebSocket, user_id: int):
 
 @router.websocket("/ws/client/{user_id}")
 async def websocket_client_endpoint(websocket: WebSocket, user_id: int):
+    print("CLIENT WS CONNECT ATTEMPT")  # Добавленный print
+    
     await manager.connect_client(websocket, user_id)
+    print("CLIENT WS CONNECTED")  # Добавленный print
+    
     try:
         while True:
             data = await websocket.receive_text()
