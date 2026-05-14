@@ -3,7 +3,7 @@ from fastapi import APIRouter, WebSocket, WebSocketDisconnect
 from typing import Dict
 import json
 
-router = APIRouter(tags=["WebSocket"])
+router = APIRouter()
 
 # Хранилище активных WebSocket соединений
 class ConnectionManager:
@@ -169,3 +169,4 @@ async def send_driver_location_to_client(client_id: int, driver_id: int, lat: fl
     }
     success = await manager.send_to_client(client_id, message)
     return success
+print(router.routes)
