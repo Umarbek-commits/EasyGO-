@@ -7,7 +7,7 @@ import PassengerAuthPage from "../pages/PassengerAuthPage";
 import HomePage from "../pages/HomePage";
 import ProfilePage from "../pages/ProfilePage";
 import SupportPage from "../pages/SupportPage";
-import DriverHomePage from "../pages/Driverhomepage";
+import DriverHomePage from "../pages/DriverHomePage";
 import DriverProfilePage from "../pages/DriverProfilePage";
 
 import PaymentsPage from "../pages/PaymentsPage";
