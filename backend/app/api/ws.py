@@ -114,7 +114,9 @@ async def websocket_driver_endpoint(websocket: WebSocket, user_id: str):
     except WebSocketDisconnect:
         manager.disconnect_driver(user_id)
     except Exception as e:
-        print(f"Unexpected error in driver endpoint: {e}")
+        import traceback
+        print("WS DRIVER ERROR:")
+        traceback.print_exc()
         manager.disconnect_driver(user_id)
 
 
@@ -137,7 +139,9 @@ async def websocket_client_endpoint(websocket: WebSocket, user_id: str):
     except WebSocketDisconnect:
         manager.disconnect_client(user_id)
     except Exception as e:
-        print(f"Unexpected error in client endpoint: {e}")
+        import traceback
+        print("WS CLIENT ERROR:")
+        traceback.print_exc()
         manager.disconnect_client(user_id)
 
 
