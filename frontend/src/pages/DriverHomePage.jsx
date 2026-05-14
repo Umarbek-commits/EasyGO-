@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import MobileShell from "../components/MobileShell";
+import "../styles/DriverHomePage.css";
 import {
   createRide,
   getCurrentRide,
@@ -919,38 +920,66 @@ function DriverHomePage() {
 
           {/* 🔴 НОВАЯ ФОРМА МАРШРУТА */}
           {isRouteFormOpen && (
-            <div className="ride-sheet">
-              <div className="sheet-handle" />
+  <>
+    <div
+      className="sheet-backdrop"
+      onClick={() => setIsRouteFormOpen(false)}
+    />
 
-              <h2>Куда едешь?</h2>
+    <div className="ride-sheet modern-sheet">
+      <div className="sheet-top">
+        <div className="sheet-handle" />
 
-              <input
-                placeholder="Откуда"
-                value={driverFrom}
-                onChange={(e) => setDriverFrom(e.target.value)}
-                className="ride-input"
-              />
+        <button
+          className="sheet-close-btn"
+          onClick={() => setIsRouteFormOpen(false)}
+        >
+          ✕
+        </button>
+      </div>
 
-              <input
-                placeholder="Куда"
-                value={driverTo}
-                onChange={(e) => setDriverTo(e.target.value)}
-                className="ride-input"
-              />
+      <h2 className="sheet-title">Ваш маршрут</h2>
 
-              <button
-                className="search-btn"
-                onClick={() => {
-                  if (!driverFrom || !driverTo) return;
+      <p className="sheet-subtitle">
+        Укажите направление чтобы получать заказы по пути
+      </p>
 
-                  setIsRouteFormOpen(false);
-                  setIsSearching(true);
-                }}
-              >
-                Начать поиск
-              </button>
-            </div>
-          )}
+      <div className="ride-input-group">
+        <label>Откуда</label>
+
+        <input
+          placeholder="Например: Центр"
+          value={driverFrom}
+          onChange={(e) => setDriverFrom(e.target.value)}
+          className="ride-input modern-input"
+        />
+      </div>
+
+      <div className="ride-input-group">
+        <label>Куда</label>
+
+        <input
+          placeholder="Например: Асанбай"
+          value={driverTo}
+          onChange={(e) => setDriverTo(e.target.value)}
+          className="ride-input modern-input"
+        />
+      </div>
+
+      <button
+        className="search-btn modern-search-btn"
+        onClick={() => {
+          if (!driverFrom || !driverTo) return;
+
+          setIsRouteFormOpen(false);
+          setIsSearching(true);
+        }}
+      >
+        Начать поиск заказов
+      </button>
+    </div>
+  </>
+)}
 
           {isSearching && (
             <div className="searching-sheet compact-sheet">

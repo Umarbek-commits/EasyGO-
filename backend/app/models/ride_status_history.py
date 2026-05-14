@@ -17,3 +17,4 @@ class RideStatusHistory(Base):
     changed_by_user_id = Column(Integer, ForeignKey("users.id"))
 
     created_at = Column(DateTime, default=datetime.utcnow)
+    
