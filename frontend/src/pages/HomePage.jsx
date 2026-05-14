@@ -72,7 +72,12 @@ function HomePage() {
     const token = localStorage.getItem("easygo_token");
     if (!token) return;
 
-    const ws = new WebSocket(`ws://localhost:8000/api/v1/ws/client/${user?.id}`);
+   const WS_URL =
+  window.location.hostname === "localhost"
+    ? "ws://localhost:8000"
+    : "wss://easygo-ao7f.onrender.com";
+
+   const ws = new WebSocket(WS_URL);
 
     ws.onopen = () => {
       console.log("WebSocket connected as client");
