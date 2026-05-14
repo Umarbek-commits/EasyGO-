@@ -74,8 +74,8 @@ function HomePage() {
 
    const WS_URL =
   window.location.hostname === "localhost"
-    ? "ws://localhost:8000/api/ws/client/1"
-    : "wss://easygo-ao7f.onrender.com/api/ws/client/1"
+    ? "ws://localhost:8000/ws/client/1"
+    : "wss://easygo-ao7f.onrender.com/ws/client/1"
 
    const ws = new WebSocket(WS_URL);
 
