@@ -35,7 +35,7 @@ app.include_router(users.router, prefix=settings.API_PREFIX)
 app.include_router(rides.router, prefix=settings.API_PREFIX)
 app.include_router(support.router, prefix=settings.API_PREFIX)
 app.include_router(drivers.router, prefix=settings.API_PREFIX)  # Drivers роутер
-app.include_router(ws_router, prefix=settings.API_PREFIX)  # WebSocket роутер
+app.include_router(ws_router)  # WebSocket роутер
 
 
 @app.get("/")
