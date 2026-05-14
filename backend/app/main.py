@@ -1,5 +1,6 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.middleware.trustedhost import TrustedHostMiddleware
 
 # Импорт роутов (исправлен импорт ws)
 from app.api.routes import auth, users, rides, support, drivers
@@ -15,7 +16,10 @@ app = FastAPI(
     debug=settings.APP_DEBUG,
 )
 
-
+app.add_middleware(
+    TrustedHostMiddleware,
+    allowed_hosts=["*"]
+)
 
 app.add_middleware(
     CORSMiddleware,
