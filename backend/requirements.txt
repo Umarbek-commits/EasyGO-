@@ -7,3 +7,4 @@ python-dotenv
 passlib[bcrypt]
 python-jose
 websockets
+pydantic-settings
