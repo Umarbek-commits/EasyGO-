@@ -9,31 +9,31 @@ router = APIRouter()
 class ConnectionManager:
     def __init__(self):
         # Храним водителей: {user_id: websocket}
-        self.active_drivers: Dict[int, WebSocket] = {}
+        self.active_drivers: Dict[str, WebSocket] = {}
         # Храним клиентов: {user_id: websocket}
-        self.active_clients: Dict[int, WebSocket] = {}
+        self.active_clients: Dict[str, WebSocket] = {}
 
-    async def connect_driver(self, websocket: WebSocket, user_id: int):
+    async def connect_driver(self, websocket: WebSocket, user_id: str):
         await websocket.accept()
         self.active_drivers[user_id] = websocket
         print(f"Driver {user_id} connected. Total drivers: {len(self.active_drivers)}")
 
-    async def connect_client(self, websocket: WebSocket, user_id: int):
+    async def connect_client(self, websocket: WebSocket, user_id: str):
         await websocket.accept()
         self.active_clients[user_id] = websocket
         print(f"Client {user_id} connected. Total clients: {len(self.active_clients)}")
 
-    def disconnect_driver(self, user_id: int):
+    def disconnect_driver(self, user_id: str):
         if user_id in self.active_drivers:
             del self.active_drivers[user_id]
             print(f"Driver {user_id} disconnected. Total drivers: {len(self.active_drivers)}")
 
-    def disconnect_client(self, user_id: int):
+    def disconnect_client(self, user_id: str):
         if user_id in self.active_clients:
             del self.active_clients[user_id]
             print(f"Client {user_id} disconnected. Total clients: {len(self.active_clients)}")
 
-    async def send_to_driver(self, user_id: int, message: dict):
+    async def send_to_driver(self, user_id: str, message: dict):
         if user_id in self.active_drivers:
             try:
                 await self.active_drivers[user_id].send_json(message)
@@ -84,7 +84,7 @@ manager = ConnectionManager()
 
 
 @router.websocket("/ws/driver/{user_id}")
-async def websocket_driver_endpoint(websocket: WebSocket, user_id: int):
+async def websocket_driver_endpoint(websocket: WebSocket, user_id: str):
     await manager.connect_driver(websocket, user_id)
     try:
         while True:
@@ -119,7 +119,7 @@ async def websocket_driver_endpoint(websocket: WebSocket, user_id: int):
 
 
 @router.websocket("/ws/client/{user_id}")
-async def websocket_client_endpoint(websocket: WebSocket, user_id: int):
+async def websocket_client_endpoint(websocket: WebSocket, user_id: str):
     await manager.connect_client(websocket, user_id)
     try:
         while True:
