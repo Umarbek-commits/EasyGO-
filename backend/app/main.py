@@ -15,12 +15,14 @@ app = FastAPI(
     debug=settings.APP_DEBUG,
 )
 
-# CORS
-origins = [origin.strip() for origin in settings.CORS_ORIGINS.split(",") if origin.strip()]
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=origins,
+    allow_origins=[
+        "https://easy-go-git-main-sidikovoatillo44-2899s-projects.vercel.app",
+        "https://easy-go.vercel.app",
+        "http://localhost:5173",
+    ],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
