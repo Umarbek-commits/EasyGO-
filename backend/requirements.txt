@@ -9,3 +9,4 @@ python-jose
 websockets
 pydantic-settings
 psycopg2-binary
+requests
