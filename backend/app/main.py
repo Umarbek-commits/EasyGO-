@@ -3,7 +3,7 @@ from fastapi.middleware.cors import CORSMiddleware
 
 # Импорт роутов (исправлен импорт ws)
 from app.api.routes import auth, users, rides, support, drivers
-from app.api import ws
+from app.api.ws import router as ws_router
 
 from app.core.config import settings
 from app.core.database import Base, engine
@@ -15,6 +15,7 @@ app = FastAPI(
     debug=settings.APP_DEBUG,
 )
 
+app.include_router(ws_router, prefix=settings.API_PREFIX)
 
 app.add_middleware(
     CORSMiddleware,
