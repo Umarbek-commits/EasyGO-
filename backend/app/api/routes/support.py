@@ -191,28 +191,41 @@ async def telegram_webhook(
     request: Request,
     db: Session = Depends(get_db),
 ):
-    data = await request.json()
+    try:
+        data = await request.json()
 
-    message = data.get("message", {})
-    text = (message.get("text") or "").strip()
+        message = data.get("message")
 
-    if not text.startswith("/reply"):
+        if not message:
+            return {"ok": True}
+
+        text = (message.get("text") or "").strip()
+
+        if not text:
+            return {"ok": True}
+
+        if not text.startswith("/reply"):
+            return {"ok": True}
+
+        parts = text.split(" ", 2)
+
+        if len(parts) < 3:
+            return {"ok": False}
+
+        _, user_id, reply_text = parts
+
+        msg = SupportMessage(
+            user_id=int(user_id),
+            role="operator",
+            text=reply_text,
+            is_read=False,
+        )
+
+        db.add(msg)
+        db.commit()
+
         return {"ok": True}
 
-    try:
-        _, user_id, reply_text = text.split(" ", 2)
-        user_id = int(user_id)
-    except Exception:
+    except Exception as e:
+        print("WEBHOOK ERROR:", e)
         return {"ok": False}
-
-    msg = SupportMessage(
-        user_id=user_id,
-        role="operator",
-        text=reply_text,
-        is_read=False,
-    )
-
-    db.add(msg)
-    db.commit()
-
-    return {"ok": True}
