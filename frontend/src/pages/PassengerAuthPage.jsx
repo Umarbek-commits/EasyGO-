@@ -49,8 +49,14 @@ async function handleVerifyCode() {
       return;
     }
 
+    const userData = {
+      ...data.user,
+      role: "passenger",
+    };
+
     localStorage.setItem("easygo_token", data.access_token);
-    localStorage.setItem("easygo_user", JSON.stringify(data.user));
+    localStorage.setItem("easygo_user", JSON.stringify(userData));
+
     navigate("/home");
   } catch (err) {
     setError(err.message || "Сервер недоступен");
