@@ -17,53 +17,56 @@ function PassengerAuthPage() {
   const [error, setError] = useState("");
 
   async function handleRequestCode() {
-  setLoading(true);
-  setError("");
+    setLoading(true);
+    setError("");
 
-  try {
-    const data = await requestPassengerCode(phone);
+    try {
+      const data = await requestPassengerCode(phone);
 
-    if (!data || !data.code) {
-      setError(data?.detail || data?.message || "Ошибка отправки кода");
-      return;
+      if (!data || !data.code) {
+        setError(data?.detail || data?.message || "Ошибка отправки кода");
+        return;
+      }
+
+      setMockCode(data.code);
+      setStep(2);
+    } catch (err) {
+      setError(err.message || "Сервер недоступен");
+    } finally {
+      setLoading(false);
     }
-
-    setMockCode(data.code);
-    setStep(2);
-  } catch (err) {
-    setError(err.message || "Сервер недоступен");
-  } finally {
-    setLoading(false);
   }
-}
 
-async function handleVerifyCode() {
-  setLoading(true);
-  setError("");
+  async function handleVerifyCode() {
+    setLoading(true);
+    setError("");
 
-  try {
-    const data = await verifyPassengerCode(phone, code);
+    localStorage.removeItem("easygo_token");
+    localStorage.removeItem("easygo_user");
 
-    if (!data || !data.access_token || !data.user) {
-      setError(data?.detail || data?.message || "Неверный код");
-      return;
+    try {
+      const data = await verifyPassengerCode(phone, code);
+
+      if (!data || !data.access_token || !data.user) {
+        setError(data?.detail || data?.message || "Неверный код");
+        return;
+      }
+
+      const userData = {
+        ...data.user,
+        role: "passenger",
+      };
+
+      localStorage.setItem("easygo_token", data.access_token);
+      localStorage.setItem("easygo_user", JSON.stringify(userData));
+
+      navigate("/home");
+    } catch (err) {
+      setError(err.message || "Сервер недоступен");
+    } finally {
+      setLoading(false);
     }
-
-    const userData = {
-      ...data.user,
-      role: "passenger",
-    };
-
-    localStorage.setItem("easygo_token", data.access_token);
-    localStorage.setItem("easygo_user", JSON.stringify(userData));
-
-    navigate("/home");
-  } catch (err) {
-    setError(err.message || "Сервер недоступен");
-  } finally {
-    setLoading(false);
   }
-}
 
   return (
     <MobileShell className="auth-screen" showBottomNav={false}>

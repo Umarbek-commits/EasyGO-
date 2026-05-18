@@ -13,28 +13,32 @@ function DriverAuthPage() {
     setLoading(true);
     setError("");
 
+    localStorage.removeItem("easygo_token");
+    localStorage.removeItem("easygo_user");
+
     try {
-  const data = await loginDriverWithTunduk({ iin });
+      const data = await loginDriverWithTunduk({ iin });
 
-  if (!data.ok) {
-    setError(data.message || "Ошибка входа");
-    return;
+      if (!data.ok) {
+        setError(data.message || "Ошибка входа");
+        return;
+      }
+
+      const userData = {
+        ...data.user,
+        role: "driver",
+      };
+
+      localStorage.setItem("easygo_token", data.token);
+      localStorage.setItem("easygo_user", JSON.stringify(userData));
+
+      navigate("/driver/home");
+    } catch {
+      setError("Сервер недоступен");
+    } finally {
+      setLoading(false);
+    }
   }
-
-  const userData = {
-    ...data.user,
-    role: "driver",
-  };
-
-  localStorage.setItem("easygo_token", data.token);
-  localStorage.setItem("easygo_user", JSON.stringify(userData));
-
-  console.log(userData);
-
-  navigate("/driver/home");
-} catch {
-  setError("Сервер недоступен");
-}}
 
   return (
     <MobileShell className="auth-screen" showBottomNav={false}>
