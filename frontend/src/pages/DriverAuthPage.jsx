@@ -17,7 +17,7 @@ function DriverAuthPage() {
     localStorage.removeItem("easygo_user");
 
     try {
-      const data = await loginDriverWithTunduk({ iin });
+      const data = await loginDriverWithTunduk(iin);
 
       if (!data.ok) {
         setError(data.message || "Ошибка входа");
