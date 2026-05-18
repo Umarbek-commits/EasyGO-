@@ -23,7 +23,7 @@ function DriverAuthPage() {
 
       localStorage.setItem("easygo_token", data.token);
       localStorage.setItem("easygo_user", JSON.stringify(data.user));
-      navigate("/driver-home");
+      navigate("/driver/home");
     } catch {
       setError("Сервер недоступен");
     } finally {
