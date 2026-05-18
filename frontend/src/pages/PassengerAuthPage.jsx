@@ -52,12 +52,19 @@ function PassengerAuthPage() {
         return;
       }
 
+      // Токен может приходить под разными ключами (access_token / token)
+      const token = data.access_token || data.token;
+
+      // Нормализуем роль, чтобы фронтенд использовал единый набор значений
+      const serverRole = data.user?.role || "";
+      const normalizedRole = serverRole === "client" ? "passenger" : (serverRole || "passenger");
+
       const userData = {
         ...data.user,
-        role: "passenger",
+        role: normalizedRole,
       };
 
-      localStorage.setItem("easygo_token", data.access_token);
+      localStorage.setItem("easygo_token", token);
       localStorage.setItem("easygo_user", JSON.stringify(userData));
 
       navigate("/home");

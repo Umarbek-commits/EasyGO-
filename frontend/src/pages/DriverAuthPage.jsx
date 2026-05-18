@@ -24,12 +24,17 @@ function DriverAuthPage() {
         return;
       }
 
+      const token = data.access_token || data.token;
+
+      const serverRole = data.user?.role || "";
+      const normalizedRole = serverRole === "client" ? "passenger" : (serverRole || "driver");
+
       const userData = {
         ...data.user,
-        role: "driver",
+        role: normalizedRole,
       };
 
-      localStorage.setItem("easygo_token", data.token);
+      localStorage.setItem("easygo_token", token);
       localStorage.setItem("easygo_user", JSON.stringify(userData));
 
       navigate("/driver/home");
