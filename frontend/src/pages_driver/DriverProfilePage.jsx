@@ -9,6 +9,7 @@ import addressIcon from "../assets/Icon/profile/address.png";
 import settingsIcon from "../assets/Icon/profile/settings.png";
 import infoIcon from "../assets/Icon/profile/info.png";
 
+
 const menuGroups = [
   ["Способы оплаты", "Ввести промокод"],
   ["История поездок", "Уведомления", "Мои адреса"],

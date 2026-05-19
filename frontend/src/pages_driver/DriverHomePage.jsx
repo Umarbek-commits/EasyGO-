@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import MobileShell from "../components/MobileShell";
+import DriverShell from "../components/driver/DriverShell";
 import "../styles/DriverHomePage.css";
 import {
   createRide,
@@ -807,7 +807,7 @@ function DriverHomePage() {
     isRouteFormOpen;
 
   return (
-    <MobileShell
+    <DriverShell
       activeTab="map"
       showBottomNav={
         !isRideSheetOpen &&
@@ -1295,7 +1295,7 @@ function DriverHomePage() {
           )}
         </div>
       </div>
-    </MobileShell>
+    </DriverShell>
   );
 }
 

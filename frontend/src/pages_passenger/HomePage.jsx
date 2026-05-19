@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import MobileShell from "../components/MobileShell";
+import PassengerShell from "../components/passenger/PassengerShell";
 import {
   createRide,
   getCurrentRide,
@@ -743,7 +743,7 @@ function HomePage() {
     isMatchesVisible;
 
   return (
-    <MobileShell
+    <PassengerShell
       activeTab="map"
       showBottomNav={
         !isRideSheetOpen &&
@@ -1281,7 +1281,7 @@ function HomePage() {
           )}
         </div>
       </div>
-    </MobileShell>
+    </PassengerShell>
   );
 }
 
