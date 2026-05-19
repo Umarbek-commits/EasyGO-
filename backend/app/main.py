@@ -25,6 +25,8 @@ app.add_middleware(
     CORSMiddleware,
     allow_origins=[
         "https://easy-go-git-main-sidikovoatillo44-2899s-projects.vercel.app",
+        "easy-go-three.vercel.app",
+        "easy-bto51upgb-sidikovoatillo44-2899s-projects.vercel.app",
         "https://easy-go.vercel.app",
         "http://localhost:5173",
     ],
