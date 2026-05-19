@@ -1,6 +1,6 @@
 import { useMemo } from "react";
 import { useNavigate } from "react-router-dom";
-import MobileShell from "../components/MobileShell";
+import PassengerShell from "../components/passenger/PassengerShell";
 import paymentMethodsIcon from "../assets/Icon/profile/payment-methods.svg";
 import promoIcon from "../assets/Icon/profile/promo.svg";
 import historyIcon from "../assets/Icon/profile/history.png";
@@ -85,7 +85,7 @@ function ProfilePage() {
   }
 
   return (
-    <MobileShell activeTab="profile">
+    <PassengerShell activeTab="profile">
       <div className="page profile-page">
         <div className="profile-top-gradient" />
 
@@ -141,7 +141,7 @@ function ProfilePage() {
           </button>
         </div>
       </div>
-    </MobileShell>
+    </PassengerShell>
   );
 }
 

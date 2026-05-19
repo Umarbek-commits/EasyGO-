@@ -1,6 +1,6 @@
 import { useMemo } from "react";
 import { useNavigate } from "react-router-dom";
-import DriverMobileShell from "../components/DriverMobileShell";
+import DriverShell from "../components/driver/DriverShell";
 import paymentMethodsIcon from "../assets/Icon/profile/payment-methods.svg";
 import promoIcon from "../assets/Icon/profile/promo.svg";
 import historyIcon from "../assets/Icon/profile/history.png";
@@ -86,7 +86,7 @@ function DriverProfilePage() {
   }
 
   return (
-    <DriverMobileShell activeTab="profile">
+    <DriverShell activeTab="profile">
       <div className="page profile-page">
         <div className="profile-top-gradient" />
 
@@ -142,7 +142,7 @@ function DriverProfilePage() {
           </button>
         </div>
       </div>
-    </DriverMobileShell>
+    </DriverShell>
   );
 }
 
